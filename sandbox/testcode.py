@@ -37,7 +37,7 @@ elif adventure == "2":
     print("Alright, well step through my teleporter to get on the submarine!")
 
 elif adventure == "3":
-    print("Alright, lets get in my sand crawler and go!!")
+    print("Alright, lets get in my Viking longship and go!!")
 
 else:
     print("Hmmm that is not what i asked we are done here")
