@@ -1,6 +1,17 @@
-#created dictionary called inventory
+import random
+
+master_item_list = ["sword", "axe", "shield", "spear", "bucket of poop"]
+master_item_dict = {"sword": "sword", "axe": "axe", "shield": "sheild", "spear": "spear", "bucket of poop": "bucket of poop"}
 inventory = {"stick": "stick", "cucumber": "cucumber"}
-inventory_lst = ["stick", "cucumber"]
+inventory_list = ["stick", "cucumber"]
+
+item_list = random.choice(tuple(master_item_list))
+item_dict = random.choice(list(master_item_dict.items()))
+
+
+
+
+
 
 # function that adds item from game into the inventory dictionary
 def add_inv(item, item_abr):
@@ -10,10 +21,10 @@ def add_inv(item, item_abr):
 def open_inv_list():
     print("You open your inventory and look a the contents")
     print("Your inventory contains...")
-    print(','.join(inventory_lst))
+    print(','.join(inventory_list))
     print("Select item by typing number of item")
     selected = input("> ")
-    in_hand = inventory_lst[(int(selected))]
+    in_hand = inventory_list[(int(selected))]
     equip_item(in_hand)
     
 
@@ -41,21 +52,23 @@ def equip_item(type):
         print("Your are a bugger eatin moron, try again")
         equip_item(type)
 
-def main():
-    print("You come across a sword! Do you pick it up?")
+def main(item):
+    print(f"You come across a {item} !")
 
     action = input("what would you like to do? > ")
     
     if action == "pick up from list":
+        inventory_list.append(item)
         open_inv_list()
     
     elif action == "pick up from dict":
+        inventory[item_dict[0]] = item_dict[1]
         open_inv_dict()
         
     else:
         print("You do nothing")
-        main()
+        main(item, item_list)
 
-main()
+main(item_list)
  
 
