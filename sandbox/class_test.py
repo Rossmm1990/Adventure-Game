@@ -86,6 +86,8 @@ def luck_points():
 class beginning:
   attribute_pool = 20
 
+  name = 'Ross'
+
   attribute_manaul = {
     "vigor": "how much dmg you do to others",
     "strength": "how much dmg you do to others",
@@ -94,7 +96,19 @@ class beginning:
     "luck": "how much dmg you do to others",
   }
 
-  
+  def attr_map(k):
+    return f"""{k} determines {attribute_manaul[k]}."""
+
+  read_friendly_attributes = map(attr_map, attribute_manaul.keys()).join('\n')
+
+  print f"""
+  Well met {name} what kind of skills to you bring to our raiding party?
+  Please in the below questions put a number value for each skill that 
+      comes up.  You have a total of 20 points to distribute between VIGOR, strength, 
+      INTELLECT, DEXTERITY, and LUCK. If you go over 20 points you will be asked to put
+      in a different number till totaly number of points equal 20.
+  {read_friendly_attributes}
+  """
 
   
 
