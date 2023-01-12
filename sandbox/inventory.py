@@ -1,20 +1,31 @@
 import random
 
 master_item_dict = {
-    "sword": {}, 
-    "axe": {}, 
-    "shield":{}, 
-    "spear":{}, 
-    "bucket of poop":{},
+    "sword": {
+        "Dmg": 10
+    }, 
+    "axe": {
+        "Dmg": 11
+    }, 
+    "shield":{
+        "Dmg": 3
+    }, 
+    "spear":{
+        "Dmg": 9
+    }, 
+    "bucket of poop":{
+        "Dmg": 100000
+    },
+    "stick":{
+        "Dmg": 1
+    }, 
+    "cucumber":{
+        "Dmg": 20
+    },
+
 }
 
-inventory = {"stick": "stick", "cucumber": "cucumber"}
-
-
-item_dict = random.choice(list(master_item_dict.items()))
-item_dict_single = item_dict[1]
-
-
+inventory = ["stick", "cucumber"]
 
 # function that adds item from game into the inventory dictionary
 def add_inv(item, item_abr):
@@ -24,11 +35,10 @@ def add_inv(item, item_abr):
 def open_inv_dict():
     print("You open your inventory and look a the contents")
     print("Your inventory contains...")
-    print(','.join(inventory.keys()))
+    print(inventory)
     print("Select item by typing name of item")
     selected = input("> ")
-    in_hand = inventory[f'{selected}']
-    equip_item(in_hand)
+    equip_item(selected)
     
 
 # fucntion that tells you what you equipped!
@@ -44,29 +54,32 @@ def equip_item(type):
         print("Your are a bugger eatin moron, try again")
         equip_item(type)
 
-def main(item_dict, item_dict_single):
+def main():
     print("You come across a chest !")
 
     action = input("what would you like to do? > ")
+
+    random_item = random.choice(list(master_item_dict.keys()))
     
-    if action == "open up from dict":
-        print(f"You open the chest and find {item_dict_single}")
+    if action == "open it":
+        print(f"You open the chest and find {random_item}")
     elif action == "nothing":
         print("You move on and leave the chest")
     else:
         print("Type the right choice you moron!!")
+        main()
 
-    answer = input(f"Do you pick up the {item_dict_single}?")
+    answer = input(f"Do you pick up the {random_item}?")
         
     if answer == "yes":
-        inventory[item_dict[0]] = item_dict[1]
+        inventory.append(random_item)
         open_inv_dict()
     elif answer == "no":
         print("You set it down and move on")
     else:
         print("Try again you dummy")
-        main(item_list, item_dict, item_dict_single)
+        main()
         
-main(item_dict, item_dict_single)
+main()
  
 
