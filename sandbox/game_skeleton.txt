@@ -1,0 +1,10 @@
+* Character
+    * Player
+    * NPC
+* Engine
+    − play
+* Scene
+    - enter
+    * Begining
+    * End
+   
