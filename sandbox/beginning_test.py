@@ -14,11 +14,11 @@ class Player(Character):
   pass
 
 
-def type_writer(text):
+def type_writer(text, speed = .01):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(.01)
+        time.sleep(speed)
 
 class beginning:
   attribute_manaul = {
@@ -67,17 +67,7 @@ class beginning:
               type_writer(to_many_points_text)
               picking_points()
 
-picking_name_text = "Please type in your character name"
 
-type_writer(picking_name_text)
-
-Main_character_name = input("> ")
-
-Main_character_class = Main_character_name
-
-Main_character_class = Character()
-
-print(Main_character_class.vigor)
-print(Main_character_name)
+type_writer(intro_text)
 
 
