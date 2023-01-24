@@ -1,56 +1,5 @@
 import random
 
-class player:
-	def __init__(self, name):
-		self.name = name
-	strength = 14
-	dexterity = 14
-	constition = 10
-	intellgence = 10
-	wisdom = 10
-	charisma = 10
-	armor = 14
-	health = 100
-
-
-	skills = [] 
-	inventory = []
-
-	def add_item_to_inventory(self, item_name, character_name):
-		character_name.inventory.append(item_name)
-
-	def add_skill(self, skill_name, character_name):
-		character_name.skills.append(skill_name)
-
-
-class enemy:
-
-	def __init__(self, health, dmg, roll_to_hit, roll_to_dodge, initiative, name):
-		self.health = health
-		self.dmg = dmg
-		self.roll_to_hit = roll_to_hit
-		self.roll_to_dodge = roll_to_dodge
-		self.initiative = initiative
-		self.name = name
-
-		
-class skills:
-
-	def __init__(self, skill_dmg, skill_name):
-		self.skill_dmg = skill_dmg
-		self.skill_name = skill_name
-		
-
-class item:
-	def __init__(self, item_dmg, name):
-		self.name = name	
-		self.item_dmg = item_dmg
-
-	def equip_item(self, player, item):
-		pass	
-	
-
-	
 class battle_engine:
 
 	
@@ -88,35 +37,13 @@ class battle_engine:
 
 		
 		
-	def type_of_attack():
-		pass
+	
 		
 
 
 
-
-
-Ross = player("Ross")
-melee_attack = skills(5, "melee_attack")
-ranged_attack = skills(5, "melee_attack")
-sword = item(5, "sword")
-bow = item(5, "bow")
-Ross.inventory.append(sword)
-farmer = enemy(100, 5, 7, 7, 20, "farmer")
-warrior_1 = enemy(150, 5, 10, 8, 20, "bill")
-x ="print"
-
-Ross.add_item_to_inventory(sword, Ross)
-Ross.add_skill(melee_attack, Ross)
-
-
-
-
-
-
-
 def fighting_the_farmer(player_name, enemy_name):
-	print("You come across a farmer with a pitchfork do you fight him?\n")
+	print(f"You come across {enemy_name.name} with a pitchfork do you fight him?\n")
 	yes_fight = input("type yes or no >")
 
 	if yes_fight == "yes":
@@ -150,12 +77,14 @@ def fighting_the_farmer(player_name, enemy_name):
 				input("hit enter to continue > \n")
 
 	if player_name.health >= 0:
-		print(f"you defeated the{enemy_name.name}")
+		print(f"you defeated the {enemy_name.name}")
+		end()
 	else:
 		print(f"you were defeated by the {enemy_name.name}")
+		end()
 
 
-fighting_the_farmer(Ross, farmer)			
+fighting_the_farmer(Ross, warrior_1)			
 
 
 
