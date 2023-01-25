@@ -28,16 +28,16 @@ rend = Skills("rend", 5, "m", "b", "melee attack that adds bleed effect which do
 
 
 Master_item_dict = {
-	"sword": sword(), 
-	"axe": axe(),
-	"bow": bow()
+	"sword": sword, 
+	"axe": axe,
+	"bow": bow
 } 
 
 
 Master_skills_dict = {
-	"melee_attack": melee_attack(),
-	"ranged_attack": ranged_attack(),
-	"rend": rend(),
+	"melee_attack": melee_attack,
+	"ranged_attack": ranged_attack,
+	"rend": rend,
 }
 
 	
